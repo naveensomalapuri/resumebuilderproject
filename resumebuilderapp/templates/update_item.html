@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Item</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+</head>
+<body>
+    <h1>Update Item</h1>
+    <form action="/update/{{ resumebuildertable.id }}" method="post">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" value="{{ resumebuildertable.name }}" required>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" value="{{ resumebuildertable.email }}" required>
+
+        <label for="phonenumber">Phone Number:</label>
+        <input type="text" id="phonenumber" name="phonenumber" value="{{ resumebuildertable.phonenumber }}" required>
+
+        <label for="location">Home Address:</label>
+        <input type="text" id="location" name="location" value="{{ resumebuildertable.location }}" required>
+
+        <label for="linkedinlink">Linked In URL :</label>
+        <input type="text" id="linkedinlink" name="linkedinlink" value="{{ resumebuildertable.linkedinlink }}" required>
+
+        <label for="githublink">GitHub URL :</label>
+        <input type="text" id="githublink" name="githublink" value="{{ resumebuildertable.githublink }}" required>
+
+        <label for="careerobjective">Career Objective :</label>
+        <textarea id="careerobjective" name="careerobjective" required>{{ resumebuildertable.careerobjective }}</textarea>
+
+        <label for="college_qualification">College Qualification :</label>
+        <input type="text" id="college_qualification" name="college_qualification" value="{{ resumebuildertable.college_qualification }}" required>
+
+        <label for="college_name">College Name:</label>
+        <input type="text" id="college_name" name="college_name" value="{{ resumebuildertable.college_name }}" required>
+
+        <label for="college_year_of_pass">College Year of Pass :</label>
+        <input type="text" id="college_year_of_pass" name="college_year_of_pass" value="{{ resumebuildertable.college_year_of_pass }}" required>
+
+        <label for="college_gpa">College GPA :</label>
+        <input type="text" id="college_gpa" name="college_gpa" value="{{ resumebuildertable.college_gpa }}" required>
+
+        <label for="school_qualification">School Qualification :</label>
+        <input type="text" id="school_qualification" name="school_qualification" value="{{ resumebuildertable.school_qualification }}" required>
+
+        <label for="school_name">School Name :</label>
+        <input type="text" id="school_name" name="school_name" value="{{ resumebuildertable.school_name }}" required>
+
+        <label for="school_year_of_pass">School Year of Pass :</label>
+        <input type="text" id="school_year_of_pass" name="school_year_of_pass" value="{{ resumebuildertable.school_year_of_pass }}" required>
+
+        <label for="school_gpa">School GPA:</label>
+        <input type="text" id="school_gpa" name="school_gpa" value="{{ resumebuildertable.school_gpa }}" required>
+
+        <label for="skill1">Skill 1 :</label>
+        <input type="text" id="skill1" name="skill1" value="{{ resumebuildertable.skill1 }}" required>
+
+        <label for="skill2">Skill 2:</label>
+        <input type="text" id="skill2" name="skill2" value="{{ resumebuildertable.skill2 }}" required>
+
+        <label for="skill3">Skill 3:</label>
+        <input type="text" id="skill3" name="skill3" value="{{ resumebuildertable.skill3 }}" required>
+      
+        <label for="skill4">Skill 4:</label>
+        <input type="text" id="skill4" name="skill4" value="{{ resumebuildertable.skill4 }}" required>
+ 
+        <label for="skill5">Skill 5 :</label>
+        <input type="text" id="skill5" name="skill5" value="{{ resumebuildertable.skill5 }}" required>
+ 
+        <label for="skill6">Skill 6:</label>
+        <input type="text" id="skill6" name="skill6" value="{{ resumebuildertable.skill6 }}" required>
+ 
+        <label for="skill7">Skill 7:</label>
+        <input type="text" id="skill7" name="skill7" value="{{ resumebuildertable.skill7 }}" required>
+ 
+        <label for="skill8">Skill 8:</label>
+        <input type="text" id="skill8" name="skill8" value="{{ resumebuildertable.skill8 }}" required>
+ 
+        <label for="skill9">Skill 9 :</label>
+        <input type="text" id="skill9" name="skill9" value="{{ resumebuildertable.skill9 }}" required>
+ 
+        <label for="skill10">Skill 10 :</label>
+        <input type="text" id="skill10" name="skill10" value="{{ resumebuildertable.skill10 }}" required>
+ 
+        <label for="project1_name">Project 1 Name :</label>
+        <input type="text" id="project1_name" name="project1_name" value="{{ resumebuildertable.project1_name }}" required>
+
+        <label for="project1_description">Project 1 Description:</label>
+        <textarea id="project1_description" name="project1_description" required>{{ resumebuildertable.project1_description }}</textarea>
+
+        <label for="project1_duration">Project 1 Duration:</label>
+        <input type="text" id="project1_duration" name="project1_duration" value="{{ resumebuildertable.project1_duration }}" required>
+ 
+        <label for="project2_name">Project 2 Name :</label>
+        <input type="text" id="project2_name" name="project2_name" value="{{ resumebuildertable.project2_name }}" required>
+
+        <label for="project2_description">Project 2 Description:</label>
+        <textarea id="project2_description" name="project2_description" required>{{ resumebuildertable.project2_description }}</textarea>
+
+        <label for="project2_duration">Project 2 Duration:</label>
+        <input type="text" id="project2_duration" name="project2_duration" value="{{ resumebuildertable.project2_duration }}" required>
+
+        <label for="language1">First Language :</label>
+        <input type="text" id="language1" name="language1" value="{{ resumebuildertable.language1 }}" required>
+
+        <label for="language2">Second Language :</label>
+        <input type="text" id="language2" name="language2" value="{{ resumebuildertable.language2 }}" required>
+
+        <label for="language3">Third Language :</label>
+        <input type="text" id="language3" name="language3" value="{{ resumebuildertable.language3 }}" required>
+
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>

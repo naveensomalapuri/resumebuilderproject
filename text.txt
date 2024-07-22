@@ -1,0 +1,34 @@
+creat virtual environment
+    python -m venv resumebuildervenv
+to activate venv "resumebuildervenv"
+    .\resumebuildervenv\Scripts\activate
+install requirements.txt file to install packeges requried
+    pip install -r requirements.txt
+
+Enter resumebuilderapp
+    cd resumebuilderapp
+
+
+Get get api key and username throgh sign up form this website 
+    https://pdfcrowd.com/
+    after sign up you get username and api key in account dash board
+
+
+
+fastapi-sqlite-app/
+├── main.py
+├── models.py
+├── database.py
+├── static/
+│   ├── css/
+│   │   └── styles.css
+│   └── js/
+│       └── scripts.js
+└── templates/
+    ├── index.html
+    ├── create_item.html
+    └── update_item.html
+
+
+to run the server
+    uvicorn main:app --reload
