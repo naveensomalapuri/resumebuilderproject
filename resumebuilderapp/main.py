@@ -190,17 +190,40 @@ async def update_item(
 
 # convert html as pdf
 from pdfcrowd import HtmlToPdfClient
+@app.get("/download_pdf/{resumebuildertable_id}", response_class=FileResponse)
+async def download_pdf(resumebuildertable_id: int, request: Request, db: Session = Depends(database.get_db)):
+    resume = get_resume_by_id(db, resumebuildertable_id)
+    if not resume:
+        return HTMLResponse(content="Resume not found", status_code=404)
+    
+    html_content = templates.TemplateResponse("resumeview.html", {"request": request, "resume": resume}).body.decode("utf-8")
+    
+    # Ensure paths to static files are absolute
+    #html_content = html_content.replace('href="/static/', f'href="{request.url_for("static", path="")}')
+    #html_content = html_content.replace('src="/static/', f'src="{request.url_for("static", path="")}')
+    
+    pdf_file_path = f"resume_{resumebuildertable_id}.pdf"
+    client = HtmlToPdfClient("somalapurinaveen999","e9c2eb9b110f3e6036b876e3fd36d679") # Replace with your actual username and API key
+    try:
+        client.convertStringToFile(html_content, pdf_file_path)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"PDF generation failed: {str(e)}")
+    
+    return FileResponse(path=pdf_file_path, filename=f"resume_{resumebuildertable_id}.pdf", media_type="application/pdf")
 
-@app.get("/download_pdf", response_class=FileResponse)
-async def download_pdf(request: Request, db: Session = Depends(database.get_db)):
-    resumebuildertable = db.query(models.Resumebuildertable).all()
-    html_content = templates.TemplateResponse("resumeview.html", {"request": request, "resumebuildertable": resumebuildertable}).body.decode("utf-8")
+
+"""@app.get("/download_pdf/{resumebuildertable_id}", response_class=FileResponse)
+async def download_pdf(resumebuildertable_id: int, request: Request, db: Session = Depends(database.get_db)):
+    #resumebuildertable = db.query(models.Resumebuildertable).all()
+    #html_content = templates.TemplateResponse("resumeview.html", {"request": request, "resumebuildertable": resumebuildertable}).body.decode("utf-8")
+    
+    html_content = read_items(request, resumebuildertable_id, db)
     
     pdf_file_path = "items.pdf"
     client = HtmlToPdfClient("somalapurinaveen999","e9c2eb9b110f3e6036b876e3fd36d679") # ("your_api_key")
     client.setUseHttp(True)
     client.convertStringToFile(html_content, pdf_file_path)
-    return FileResponse(path=pdf_file_path, filename="items.pdf", media_type="application/pdf")
+    return FileResponse(path=pdf_file_path, filename="items.pdf", media_type="application/pdf")"""
 
 
 """@app.get("/download_pdf", response_class=FileResponse)
